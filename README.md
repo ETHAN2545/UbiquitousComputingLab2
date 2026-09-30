@@ -1,2 +1,0 @@
-# UbiquitousComputingLab2
-
