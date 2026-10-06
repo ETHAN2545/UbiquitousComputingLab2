@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
@@ -23,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         name = findViewById(R.id.name);
@@ -42,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
 
-        intent.setData(Uri.parse("mailto:" + emailAddress));
+        intent.setData(Uri.parse("mailto:"));
+
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailAddress});
 
         intent.putExtra(Intent.EXTRA_SUBJECT, "Validation Code");
 
